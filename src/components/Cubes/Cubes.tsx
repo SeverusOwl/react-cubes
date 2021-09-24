@@ -5,7 +5,7 @@ import './cubes.scss';
 export const Cubes: React.FC = () => {
   const [selectedCubes, setSelectedCubes] = useState<number[]>([]);
   const [validCubes, setValidCubes] = useState<number[]>([1, 2, 3]);
-  const [showError, setShowError] = useState(true);
+  const [showError, setShowError] = useState(false);
 
   const getRandomArray = () => {
     const valid: number[] = [];
@@ -22,13 +22,13 @@ export const Cubes: React.FC = () => {
   };
 
   const compareArrays = (selected: number[], valid: number[]) => {
-    for (let i = 0; i < selectedCubes.length; i += 1) {
-      if (!valid.includes(selected[i]) || selected.length !== valid.length) {
-        return false;
+    for (let i = 0; i < validCubes.length; i += 1) {
+      if (selected.length !== valid.length || !valid.includes(selected[i])) {
+        return true;
       }
     }
 
-    return true;
+    return false;
   };
 
   const handleChange = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -50,7 +50,7 @@ export const Cubes: React.FC = () => {
     setValidCubes(array);
     setShowError(error);
     // eslint-disable-next-line no-console
-    console.log(validCubes);
+    console.log(array);
   };
 
   return (
@@ -113,7 +113,7 @@ export const Cubes: React.FC = () => {
         >
           Submit
         </button>
-        {!showError && (
+        {showError && (
           <div className="error">
             Error
           </div>
