@@ -5,15 +5,15 @@ import './cubes.scss';
 export const Cubes: React.FC = () => {
   const [selectedCubes, setSelectedCubes] = useState<number[]>([]);
   const [validCubes, setValidCubes] = useState<number[]>([1, 2, 3]);
-  const [showError, setShowError] = useState(false);
+  const [showError, setShowError] = useState(true);
 
   const getRandomArray = () => {
-    const valid = [];
+    const valid: number[] = [];
 
-    for (; validCubes.length < 3;) {
-      const number = Math.round(Math.random() * (0 - 7) + 0);
+    for (; valid.length < 3;) {
+      const number = Math.round(Math.random() * (6 - 1) + 1);
 
-      if (!validCubes.includes(number)) {
+      if (!valid.includes(number)) {
         valid.push(number);
       }
     }
@@ -49,6 +49,8 @@ export const Cubes: React.FC = () => {
     setSelectedCubes([]);
     setValidCubes(array);
     setShowError(error);
+    // eslint-disable-next-line no-console
+    console.log(validCubes);
   };
 
   return (
