@@ -1,9 +1,3 @@
-# React TypeScript Starter Pack
+<h1><a href="https://severusowl.github.io/react-cubes/">Demo</a></h1>
 
-To use this template click `Use this template`
-
-### Available Scripts
-
-`Deploy` - available to deploy your application to gh-pages
-
-`SCSS Preprocessor` - available to write your styles with modern style language
+</h2>"В консоли выводится правильный ответ"</h2>
